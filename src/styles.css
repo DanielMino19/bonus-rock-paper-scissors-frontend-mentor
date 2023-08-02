@@ -8,10 +8,38 @@
 }
 
 body {
-   
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 600, 700;
     background: -webkit-radial-gradient(top, var(--bg-gradient));
     background: radial-gradient(at top, var(--bg-gradient));
   }
 
+  .scissors-gradient{
+    background: rgb(236,158,14);
+    background: linear-gradient(90deg, rgba(236,158,14,1) 0%, rgba(236,169,34,1) 100%); 
+  }  
+  
+  .paper-gradient{
+    background: rgb(72,101,244);
+    background: linear-gradient(90deg, rgba(72,101,244,1) 0%, rgba(86,113,245,1) 100%); 
+  }
+  
+  .rock-gradient{
+    background: rgb(220,46,78);
+    background: linear-gradient(90deg, rgba(220,46,78,1) 0%, rgba(221,64,93,1) 100%); 
+  }
+  
+  .lizard-gradient{
+    background: rgb(131,79,227);
+    background: linear-gradient(90deg, rgba(131,79,227,1) 0%, rgba(140,93,229,1) 100%); 
+  }
+  
+  .cyan-gradient{
+    background: rgb(64,185,206);
+    background: linear-gradient(90deg, rgba(64,185,206,1) 0%, rgba(82,190,209,1) 100%); 
+  }
+  /* scissors-gradient : #ec9e0e to #eca922 .
+    paper-gradient: #4865f4 to 	#5671f5 .
+    rock-gradient:  #dc2e4e to #dd405d .
+    lizard-gradient: #834fe3 to #8c5de5 .
+    cyan-custom: #40b9ce to #52bed1 .*/
