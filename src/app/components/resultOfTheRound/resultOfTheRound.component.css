@@ -1,0 +1,27 @@
+@keyframes pulseAnimation {
+  100% {
+        scale:2;
+        opacity: 0
+        }
+  
+}
+
+.pulseAnimation {
+ animation-name: pulseAnimation;
+ animation-duration: 6s;
+ animation-delay: 2s;
+ animation-iteration-count: infinite;
+}
+
+.pulseAnimation2{
+    animation-name: pulseAnimation;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.pulseAnimation3{
+    animation-name: pulseAnimation;
+    animation-delay: 4s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}

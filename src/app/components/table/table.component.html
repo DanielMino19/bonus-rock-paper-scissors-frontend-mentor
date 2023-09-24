@@ -1,5 +1,5 @@
 
-<div *ngIf="!showResult" class="justify-center flex flex-col sm:w-[400px] aspect-auto  w-9/12 m-auto mb-20 mt-[100px] relative ">
+<div *ngIf="!showResult" class="justify-center flex flex-col sm:w-[400px] aspect-auto  w-9/12 m-auto  mt-[100px] relative ">
   <div (click)="filterCardsByChoice('scissors')" class="cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-full w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] justify-center flex scissors-gradient rounded-full" style="box-shadow: inset 0px -10px 0px -3px rgba(0,0,0,0.1);" >
     <div class="rounded-full m-auto  p-5 sm:p-7 bg-white " style="box-shadow: inset 0px 7px 0px 0px rgba(0,0,0,0.1);">
       <img class="w-10 h-10 flex aspect-auto" src="../../assets/icons/icon-scissors.svg" alt="scissors">
@@ -32,6 +32,6 @@
 
   <img src="../../assets/bg/bg-pentagon.svg" alt="">
 </div>
-<app-resultOfTheRound *ngIf="showResult" (switchResult)="filterCardsByChoice($event)" [item]="filteredCards ? filteredCards : []" ></app-resultOfTheRound>
+<app-resultOfTheRound *ngIf="showResult" (switchResult)="closeResult($event)" [item]="filteredCards ? filteredCards : []" [bothChoose]="bothChoose" [gameWinner]="gameWinner" ></app-resultOfTheRound>
 
 

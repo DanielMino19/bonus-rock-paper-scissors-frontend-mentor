@@ -13,7 +13,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        'barlow-semi-condensed': ['"Barlow Semi Condensed"', 'sans-serif'],
+        'barlow': ['"Barlow Semi Condensed"', 'sans-serif'],
       }
     },
   plugins: [],

@@ -1,13 +1,60 @@
-<div (click)="onSwitchResult()" class="cursor-pointer flex bg-red justify-center m-auto" >
-<div class=" w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] justify-center flex scissors-gradient rounded-full" style="box-shadow: inset 0px -10px 0px -3px rgba(0,0,0,0.1);" >
-  <div class="rounded-full m-auto  p-5 sm:p-7 bg-white " style="box-shadow: inset 0px 7px 0px 0px rgba(0,0,0,0.1);">
-    <img class="w-10 h-10 flex aspect-auto" src="../../assets/icons/icon-scissors.svg" alt="scissors">
+<div class=" flex  justify-center items-center h-[400px]   min-h-full ">
+  <div class=" relative flex min-w-full  justify-center gap-10">
+
+    <div class="flex flex-col items-center">
+      <h5 class="font-bold flex mb-16 text-white font-barlow">You picked</h5>
+      <div class="relative justify-end flex">
+        <div class="flex flex-col items-center  z-30 ">
+          <div
+            class=" w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] left-1/2   justify-center  flex  rounded-full"
+            style="box-shadow: inset 0px -10px 0px -3px rgba(0,0,0,0.1);"
+            ngClass="{{item[0].typeOfColor}}">
+            <div class="rounded-full m-auto  p-5 sm:p-7 bg-white "
+              style="box-shadow: inset 0px 7px 0px 0px rgba(0,0,0,0.1);">
+              <img class="w-10 h-10 flex aspect-auto" src={{item[0].typeOfImg}} alt="scissors">
+            </div>
+          </div>
+        </div>
+        <div class="absolute h-full w-full" *ngIf="yourWinner">
+            <div class="absolute  rounded-full w-full h-full pulseAnimation z-10 bg-red-300"></div>
+            <div class="absolute  rounded-full w-full h-full pulseAnimation2 z-10 bg-purple-300"></div>
+            <div class="absolute  rounded-full w-full h-full pulseAnimation3 z-10 bg-red-500"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center flex-col items-center gap-4 relative">
+      <h1 class="font-bold text-white text-[3rem] font-barlow">{{gameWinner}}</h1>
+      <button (click)="onSwitchResult()"
+        class="font-bold bg-white py-2 px-20 score-text rounded-lg text-lg font-barlow">Play again</button>
+    </div>
+
+
+    <div class="flex flex-col items-center">
+      <h5 class="font-bold flex mb-16 text-white font-barlow">The House picket</h5>
+      <div class="relative justify-end flex">
+        <div class="flex flex-col items-center  z-30 ">
+          <div
+            class=" w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] left-1/2   justify-center  flex  rounded-full"
+            style="box-shadow: inset 0px -10px 0px -3px rgba(0,0,0,0.1);"
+            ngClass="{{bothChoose.typeOfColor}}">
+            <div class="rounded-full m-auto  p-5 sm:p-7 bg-white "
+              style="box-shadow: inset 0px 7px 0px 0px rgba(0,0,0,0.1);">
+              <img class="w-10 h-10 flex aspect-auto" src={{bothChoose.typeOfImg}} alt="scissors">
+            </div>
+          </div>
+        </div>
+        <div class="absolute h-full w-full" *ngIf="houseWinner">
+            <div class="absolute  rounded-full w-full h-full pulseAnimation z-10 bg-red-300 "></div>
+            <div class="absolute  rounded-full w-full h-full pulseAnimation2 z-10 bg-purple-300"></div>
+            <div class="absolute  rounded-full w-full h-full pulseAnimation3 z-10 bg-red-500"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class=" w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] justify-center flex  cyan-gradient rounded-full" style="box-shadow: inset 0px -10px 0px -3px rgba(0,0,0,0.1);" >
-  <div class="rounded-full m-auto  p-5 sm:p-7 bg-white  " style="box-shadow: inset 0px 7px 0px 0px rgba(0,0,0,0.1);">
-    <img class="w-10 h-10 flex aspect-auto" src={{item[0].typeOfImg}} alt="spock">
-  </div>
-</div>
-</div>
+
+<button
+  class="absolute bottom-0 right-5 font-bold border py-2 px-6 rounded-lg text-white text-lg font-barlow">Rules</button>

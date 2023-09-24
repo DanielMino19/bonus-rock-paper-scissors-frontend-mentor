@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Card } from 'src/app/interfaces/card';
+import { BotChoiceService } from 'src/app/services/bot-choice.service';
 
 @Component({
   selector: 'app-table',
@@ -7,29 +8,48 @@ import { Card } from 'src/app/interfaces/card';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  showResult: boolean = false;
+  showResult: boolean = false;// TODO: change at true before fix 
   choiceHand: string = '';
   filteredCards: Card[] = [];
-
+  bothChoose: any
+  gameWinner: string = "";
   cards: Card[] = [
-    { typeOfCard:'rock' , power: 3, typeOfColor: 'rock-gradient', typeOfImg: TypeOfImg.ROCK },
-    { typeOfCard:'paper' , power: 2, typeOfColor: 'paper-gradient', typeOfImg: TypeOfImg.PAPER },
-    { typeOfCard:'scissors' , power: 2, typeOfColor: 'scissors-gradient', typeOfImg: TypeOfImg.SCISSORS },
-    { typeOfCard:'lizard' , power: 2, typeOfColor: 'lizard-gradient', typeOfImg: TypeOfImg.LIZARD },
-    { typeOfCard:'spock' , power: 2, typeOfColor: 'cyan-gradient', typeOfImg: TypeOfImg.SPOCK },
+    { typeOfCard:'rock' , typeOfColor: 'rock-gradient', typeOfImg: TypeOfImg.ROCK },
+    { typeOfCard:'paper' ,  typeOfColor: 'paper-gradient', typeOfImg: TypeOfImg.PAPER },
+    { typeOfCard:'scissors' ,  typeOfColor: 'scissors-gradient', typeOfImg: TypeOfImg.SCISSORS },
+    { typeOfCard:'lizard' ,  typeOfColor: 'lizard-gradient', typeOfImg: TypeOfImg.LIZARD },
+    { typeOfCard:'spock' ,  typeOfColor: 'cyan-gradient', typeOfImg: TypeOfImg.SPOCK },
   ];   
 
-  constructor() { }
+  constructor(
+    private botService: BotChoiceService
+  ) { }
+
+
 
   ngOnInit() {
     console.log(this.cards)
   }
 
+  closeResult(event:any){
+    this.showResult = !this.showResult; 
+  }
+
   filterCardsByChoice(card: any) {
     this.choiceHand = card;
     this.filteredCards = this.cards.filter((card) => card.typeOfCard === this.choiceHand);
-    this.showResult = !this.showResult; 
+    const userSelectedCard: Card | undefined = this.filteredCards[0];
+    if (userSelectedCard) {
+      this.botService.playGame(userSelectedCard).then(gameResult => {
+        this.showResult = !this.showResult; 
+        this.bothChoose = gameResult.botCard
+        this.gameWinner = gameResult.result
+        console.log(this.gameWinner)
+      });
+    }
   }
+  
+  
 
 }
 
