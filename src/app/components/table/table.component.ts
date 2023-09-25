@@ -44,7 +44,7 @@ export class TableComponent implements OnInit {
         this.showResult = !this.showResult; 
         this.bothChoose = gameResult.botCard
         this.gameWinner = gameResult.result
-        console.log(this.gameWinner)
+        // console.log(this.gameWinner)
       });
     }
   }

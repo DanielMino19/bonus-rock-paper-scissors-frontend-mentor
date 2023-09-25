@@ -18,8 +18,6 @@ export class ResultOfTheRoundComponent implements OnInit {
   constructor(private userPoints: UserPointsService) { }
 
   ngOnInit(): void {
-  console.log(this.item)
-  console.log(this.bothChoose, "emm")
   this.userPoints.getPoints()
   this.winnerHand()
   }
